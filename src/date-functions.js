@@ -29,6 +29,16 @@ export function now (f) {
   }
 }
 
+export function format (date, f) {
+  let frmt = f || DATE_FORMAT_DEFAULT;
+  let parseData = parse(date);
+  if (contains(SUPORT_DATE_FORMATS, frmt)) {
+    return parseData.format(frmt);
+  } else {
+    throw Error('传入的日期格式无效');
+  }
+}
+
 var UNIT_TYPE_REGX = /^[y|Q|M|w|d|h|m|s|ms]$/;
 /**
  * 日期增加数（默认为num天）

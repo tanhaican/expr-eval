@@ -301,6 +301,7 @@ Here are some processing functions for dates.
 Function                        | Description
 :------------------------------ | :-----------------------------------------------
 now(format)                     | 获取当前时间。format为非必填的，内容可选择“支持的日期格式”
+format(date, format)            | 格式化时间。format为非必填的，内容可选择“支持的日期格式”
 dateAdd(date, num, unit)        | 日期增加数。unit非必填，不填则默认为'd'(天)（默认为num天），可选值请看“计算用时间单位符号”。例：dateAdd('2018-08-08 13', 2, 'h')
 dateSubtract(date, num, unit)   | 日期减去数。unit非必填，不填则默认为'd'(天)（默认为num天），可选值请看“计算用时间单位符号”。例：dateSubtract('2018-08-08 13', 2, 'h')
 datesDiff (date1, date2, unit)  | 两日期相差数。unit非必填，不填则默认为'd'(天)（默认为num天），可选值请看“计算用时间单位符号”。例：datesDiff('2018-08-08', '2018-08-06', 'h')

@@ -40,6 +40,7 @@ import {
 } from './functions';
 import {
   now,
+  format,
   dateAdd,
   dateSubtract,
   datesDiff,
@@ -115,6 +116,7 @@ export function Parser(options) {
     gamma: gamma,
     roundTo: roundTo,
     now: now,
+    format: format,
     dateAdd: dateAdd,
     dateSubtract: dateSubtract,
     datesDiff: datesDiff,
