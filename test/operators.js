@@ -21,6 +21,30 @@ function assertCloseTo(expected, actual, delta) {
 describe('Operators', function () {
   var parser = new Parser();
 
+  describe('+ operator', function () {
+    it('1.3 + 1.1 + 1', function () {
+      assert.strictEqual(Parser.evaluate('1.3 + 1.1 + 1'), 3.4);
+    });
+  });
+
+  describe('- operator', function () {
+    it('1.3 - 1.1', function () {
+      assert.strictEqual(Parser.evaluate('1.3 - 1.1'), 0.2);
+    });
+  });
+
+  describe('* operator', function () {
+    it('1.3 * 1.1', function () {
+      assert.strictEqual(Parser.evaluate('1.3 * 1.1'), 1.43);
+    });
+  });
+
+  describe('/ operator', function () {
+    it('1.21 / 1.1', function () {
+      assert.strictEqual(Parser.evaluate('1.21 / 1.1'), 1.1);
+    });
+  });
+
   describe('== operator', function () {
     it('2 == 3', function () {
       assert.strictEqual(Parser.evaluate('2 == 3'), false);
