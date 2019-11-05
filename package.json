@@ -1,14 +1,15 @@
 {
-  "name": "expr-eval",
-  "version": "1.2.3",
-  "description": "Mathematical expression evaluator",
+  "name": "expr-eval-ex",
+  "version": "0.0.5",
+  "description": "Mathematical expression evaluator, extends from expr-eval",
   "main": "dist/bundle.js",
   "typings": "parser.d.ts",
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "number-precision": "^1.3.2"
+    "number-precision": "^1.3.2",
+    "moment": "^2.22.2"
   },
   "devDependencies": {
     "eslint": "^4.19.0",
@@ -36,7 +37,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/silentmatt/expr-eval.git"
+    "url": "git+https://github.com/tanhaican/expr-eval.git"
   },
   "keywords": [
     "expression",
@@ -46,10 +47,10 @@
     "function",
     "parser"
   ],
-  "author": "Matthew Crumley",
+  "author": "tanhaican",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/silentmatt/expr-eval/issues"
+    "url": "https://github.com/tanhaican/expr-eval/issues"
   },
-  "homepage": "https://github.com/silentmatt/expr-eval#readme"
+  "homepage": "https://github.com/tanhaican/expr-eval#readme"
 }

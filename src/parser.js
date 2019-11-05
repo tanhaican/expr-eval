@@ -34,8 +34,18 @@ import {
   stringLength,
   hypot,
   condition,
-  roundTo
+  roundTo,
+  isNull,
+  isEmpty
 } from './functions';
+import {
+  now,
+  format,
+  dateAdd,
+  dateSubtract,
+  datesDiff,
+  dateGet
+} from './date-functions';
 
 export function Parser(options) {
   this.options = options || {};
@@ -104,7 +114,15 @@ export function Parser(options) {
     atan2: Math.atan2,
     'if': condition,
     gamma: gamma,
-    roundTo: roundTo
+    roundTo: roundTo,
+    now: now,
+    format: format,
+    dateAdd: dateAdd,
+    dateSubtract: dateSubtract,
+    datesDiff: datesDiff,
+    dateGet: dateGet,
+    isNull: isNull,
+    isEmpty: isEmpty
   };
 
   this.consts = {
