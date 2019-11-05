@@ -1,20 +1,19 @@
 import contains from './contains';
-import NP from 'number-precision';
 
 export function add(a, b) {
-  return NP.plus(Number(a), Number(b));
+  return Number(a) + Number(b);
 }
 
 export function sub(a, b) {
-  return NP.minus(a, b);
+  return a - b;
 }
 
 export function mul(a, b) {
-  return NP.times(a, b);
+  return a * b;
 }
 
 export function div(a, b) {
-  return NP.divide(a, b);
+  return a / b;
 }
 
 export function mod(a, b) {
