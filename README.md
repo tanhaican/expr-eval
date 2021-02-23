@@ -304,8 +304,9 @@ now(format)                     | 获取当前时间。format为非必填的，�
 format(date, format)            | 格式化时间。format为非必填的，内容可选择“支持的日期格式”
 dateAdd(date, num, unit)        | 日期增加数。unit非必填，不填则默认为'd'(天)（默认为num天），可选值请看“计算用时间单位符号”。例：dateAdd('2018-08-08 13', 2, 'h')
 dateSubtract(date, num, unit)   | 日期减去数。unit非必填，不填则默认为'd'(天)（默认为num天），可选值请看“计算用时间单位符号”。例：dateSubtract('2018-08-08 13', 2, 'h')
-datesDiff (date1, date2, unit)  | 两日期相差数。unit非必填，不填则默认为'd'(天)（默认为num天），可选值请看“计算用时间单位符号”。例：datesDiff('2018-08-08', '2018-08-06', 'h')
-dateGet (date, unit)            | 获取日期中的某个值（年份/月份/时分秒等），unit可选值请看“计算用时间单位符号”，其中<b style="color:red">天需要传D</b>。例：dateGet('2018-08-08', 'D')
+datesDiff(date1, date2, unit)  | 两日期相差数。unit非必填，不填则默认为'd'(天)（默认为num天），可选值请看“计算用时间单位符号”。例：datesDiff('2018-08-08', '2018-08-06', 'h')
+datesDiff2(date1, date2, part_format, unit)  | 两日期部分相差数。unit非必填，不填则默认为'd'(天)（默认为num天），可选值请看“计算用时间单位符号”。例：datesDiff2('2021-02-08 08:30', '2021-02-06 08:10', 'hh:mm', 'm') 结果为20
+dateGet(date, unit)            | 获取日期中的某个值（年份/月份/时分秒等），unit可选值请看“计算用时间单位符号”，其中<b style="color:red">天需要传D</b>。例：dateGet('2018-08-08', 'D')
 
 ### Tests ###
 

@@ -47,7 +47,7 @@ describe('Date Functions', function () {
     it('should handle datesDiff(date1, date2)', function () {
       assert.strictEqual(Parser.evaluate('datesDiff("2018-08-08", "2018-08-06")'), 2);
     });
-    it('should handle dateAdd(date1, date2, unit)', function () {
+    it('should handle datesDiff(date1, date2, unit)', function () {
       assert.strictEqual(Parser.evaluate('datesDiff("2018-08-08", "2018-08-06", "h")'), 48);
     });
   });
@@ -57,8 +57,18 @@ describe('Date Functions', function () {
     it('should handle dateGet(date, unit)', function () {
       assert.strictEqual(Parser.evaluate('dateGet("2018-08-08", "y")'), 2018);
     });
-    it('should handle dateAdd(date, unit)', function () {
+    it('should handle dateGet(date, unit)', function () {
       assert.strictEqual(Parser.evaluate('dateGet("2018-08-08", "M")'), 8);
+    });
+  });
+
+  describe('datesDiff2()', function () {
+    // Simple cases
+    it('should handle datesDiff2(date1, date2, part_format, unit)', function () {
+      assert.strictEqual(Parser.evaluate('datesDiff2("2021-02-08 08:30", "2021-02-06 08:10", "HH:mm", "m")'), 20);
+    });
+    it('should handle datesDiff2(date1, date2, part_format)', function () {
+      assert.strictEqual(Parser.evaluate('datesDiff2("2018-08-08", "2018-08-06", "YYYYDDmmss", "d")'), 2);
     });
   });
 });

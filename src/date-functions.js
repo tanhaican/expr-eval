@@ -47,7 +47,7 @@ var UNIT_TYPE_REGX = /^[y|Q|M|w|d|h|m|s|ms]$/;
  * @param {Number} unit 增加数单位 [y: years, Q: quarters, M: months, w: weeks, d: days, 
  * h: hours, m: minutes, s: seconds, ms: milliseconds]
  */
-export function dateAdd (date, num, unit) {
+export function dateAdd (date, num, unit = 'd') {
   if (arguments.length < 2) {
     throw Error('dateAdd 至少需要传递两个参数');
   }
@@ -72,7 +72,7 @@ export function dateAdd (date, num, unit) {
  * @param {Number} unit 减去数单位 [y: years, Q: quarters, M: months, w: weeks, d: days, 
  * h: hours, m: minutes, s: seconds, ms: milliseconds]
  */
-export function dateSubtract (date, num, unit) {
+export function dateSubtract (date, num, unit = 'd') {
   if (arguments.length < 2) {
     throw Error('dateSubtract 至少需要传递两个参数');
   }
@@ -97,7 +97,7 @@ export function dateSubtract (date, num, unit) {
  * @param {String} unit 计算差值单位 [y: years, Q: quarters, M: months, w: weeks, d: days, 
  * h: hours, m: minutes, s: seconds, ms: milliseconds]
  */
-export function datesDiff (date1, date2, unit) {
+export function datesDiff (date1, date2, unit = 'd') {
   if (!date1 || !date2) {
     throw Error('datesDiff 参数date1、date2都不能为空');
   }
@@ -125,7 +125,7 @@ export function datesDiff (date1, date2, unit) {
  * @param {String} unit year (years, y), month (months, M), date (dates, D), hour (hours, h),
  * minute (minutes, m), second (seconds, s), millisecond (milliseconds, ms)
  */
-export function dateGet (date, unit) {
+export function dateGet (date, unit = 'd') {
   if (!date) {
     throw Error('date 不能为空');
   }
@@ -142,4 +142,72 @@ export function dateGet (date, unit) {
       return m.get(unit);
     }
   }
+}
+
+/**
+ * 计算两个日期的时间差
+ * @param {String} date1 
+ * @param {String} date2 
+ * @param {String} part_format HH:mm
+ * @param {String} unit 计算差值单位 [y: years, Q: quarters, M: months, w: weeks, d: days, 
+ * h: hours, m: minutes, s: seconds, ms: milliseconds]
+ */
+export function datesDiff2 (date1, date2, part_format, unit = 'd') {
+  if (!date1 || !date2) {
+    throw Error('datesDiff 参数date1、date2都不能为空');
+  }
+  if (unit) {
+    if (!UNIT_TYPE_REGX.test(unit)) {
+      throw Error('unit 传入的值无效');
+    }
+  } else {
+    unit = 'd';
+  }
+  var m1 = parse(date1);
+  var m2 = parse(date2);
+
+  if (!m1) {
+    throw Error('date1 不是有效日期/时间');
+  } else if (!m2) {
+    throw Error('date2 不是有效日期/时间');
+  }
+  var m1Part = buildMonentWhitPartFormat(m1, part_format);
+  var m2Part = buildMonentWhitPartFormat(m2, part_format);;
+  
+  return m1Part.diff(m2Part, unit);
+}
+
+function buildMonentWhitPartFormat(m, part_format) {
+  var data = [];
+  if (/(YYYY)/.test(part_format)) {
+    data.push(m.format('YYYY'));
+  } else {
+    data.push(2021);
+  }
+  if (/(MM)/.test(part_format)) {
+    data.push(m.format('MM'));
+  } else {
+    data.push(1);
+  }
+  if (/(DD)/.test(part_format)) {
+    data.push(m.format('DD'));
+  } else {
+    data.push(1);
+  }
+  if (/(HH)/.test(part_format)) {
+    data.push(m.format('HH'));
+  } else {
+    data.push(1);
+  }
+  if (/(mm)/.test(part_format)) {
+    data.push(m.format('mm'));
+  } else {
+    data.push(1);
+  }
+  if (/(ss)/.test(part_format)) {
+    data.push(m.format('ss'));
+  } else {
+    data.push(1);
+  }
+  return moment(data);
 }

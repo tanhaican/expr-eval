@@ -44,7 +44,8 @@ import {
   dateAdd,
   dateSubtract,
   datesDiff,
-  dateGet
+  dateGet,
+  datesDiff2
 } from './date-functions';
 
 export function Parser(options) {
@@ -121,6 +122,7 @@ export function Parser(options) {
     dateSubtract: dateSubtract,
     datesDiff: datesDiff,
     dateGet: dateGet,
+    datesDiff2: datesDiff2,
     isNull: isNull,
     isEmpty: isEmpty
   };
